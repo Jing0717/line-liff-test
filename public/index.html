@@ -24,6 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <title>React App</title>
   </head>
   <body>
@@ -39,5 +40,27 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
   </body>
+  <script>var liffID = '1656445827-9laP7Xde';
+
+    liff.init({
+      liffId: liffID
+    }).then(function() {
+      console.log('LIFF init');
+      let language, version, isInClient, isLoggedIn, os, lineVersion;
+
+      language = liff.getLanguage(); // String。引用 LIFF SDK 的頁面，頁面中的 lang 值
+      version = liff.getVersion(); // String。LIFF SDK 的版本
+      isInClient = liff.isInClient(); // Boolean。回傳是否由 LINE App 存取
+      isLoggedIn = liff.isLoggedIn(); // Boolean。使用者是否登入 LINE 帳號。true 時，可呼叫需要 Access Token 的 API
+      os = liff.getOS(); // String。回傳使用者作業系統：ios、android、web
+      lineVersion = liff.getLineVersion(); // 使用者的 LINE 版本
+      console.log("mmmmmmmmmm",language,version,isInClient,isLoggedIn);
+      
+      // 這邊開始寫使用其他功能
+      
+    }).catch(function(error) {
+      console.log(error);
+    });</script>
 </html>
